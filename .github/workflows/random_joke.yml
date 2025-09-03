@@ -21,4 +21,5 @@ jobs:
           pip install -r requirements.txt
       - name: Get a random joke
         run: |
+          cd ../..
           python3 random_joke.py
