@@ -8,9 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          path: .
+        uses: actions/checkout@v4
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -21,6 +19,4 @@ jobs:
           pip install -r requirements.txt
       - name: Get a random joke
         run: |
-          ls -la
-          cd azure-gitops
           python3 random_joke.py
