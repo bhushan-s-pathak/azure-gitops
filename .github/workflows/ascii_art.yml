@@ -15,7 +15,7 @@ jobs:
       - name: Pause for 30 seconds
         run: sleep 30
       - name: Upload dragon.txt as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: dragon-artifact
           path: dragon.txt
@@ -27,7 +27,7 @@ jobs:
       - name: Pause for 10 seconds
         run: sleep 10
       - name: Download dragon.txt artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v5.0.0
         with:
           name: dragon-artifact
       - name: Verify dragon.txt
@@ -38,7 +38,7 @@ jobs:
     needs: build_job_1
     steps:
       - name: Download dragon.txt artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v5.0.0
         with:
           name: dragon-artifact
       - name: Display dragon.txt
