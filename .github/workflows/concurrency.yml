@@ -20,7 +20,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: build   # deploy waits for build
+    needs: build
     concurrency:
       group: deploy-${{ github.event.inputs.env }}
       cancel-in-progress: true
