@@ -2,6 +2,9 @@ name: Env variable demonstration
 on:
   workflow_dispatch:
 
+env:
+  globalVar1: globalvalue1
+
 jobs:
   job1:
     env:
@@ -14,3 +17,4 @@ jobs:
         run: |
           echo "The value for stepvar1: $stepVar1"
           echo "The value for jobVar1: $jobVar1"
+          echo "The value for globalVar1: $globalVar1"
