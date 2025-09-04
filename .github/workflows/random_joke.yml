@@ -6,8 +6,6 @@ on:
 jobs:
   get-joke:
     runs-on: linuxvm1g1
-    outputs:
-      joke-output: ${{ steps.joke-step.outputs.joke-output }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -23,7 +21,7 @@ jobs:
         run: |
           python3 random_joke.py
 
-  analyze-output:
+  dependent-job:
     runs-on: linuxvm1g1
     needs: get-joke
     steps:
