@@ -1,6 +1,11 @@
 name: Env variable demonstration
 on:
   workflow_dispatch:
+    inputs:
+      loglevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
 
 env:
   globalVar1: globalvalue1
@@ -20,3 +25,5 @@ jobs:
           echo "The value for globalVar1: $globalVar1"
           echo "The value for REPOVAR1: ${{ vars.REPOVAR1 }}"
           echo "The value for Token: ${{ secrets.TOKEN }}"
+      - name: Show input
+        run: echo "Log level is ${{ github.event.inputs.loglevel }}"
