@@ -1,0 +1,13 @@
+name: Env variable demonstration
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step1
+        env:
+          stepVar1: stepvalue1
+        run: |
+          echo "The value for stepvar1: $stepVar1"
