@@ -31,7 +31,7 @@ jobs:
     needs: build
     concurrency:
       group: deploy-${{ github.event.inputs.env }}
-      cancel-in-progress: true
+      cancel-in-progress: false
     steps:
       - name: Deploy Step
         run: |
