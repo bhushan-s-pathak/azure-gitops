@@ -1,9 +1,17 @@
 name: Concurrency Two Jobs
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      env:
+        type: choice
+        description: "Environment (dev/staging/prod)"
+        required: true
+        default: "dev"
+        options:
+          - dev
+          - staging
+          - prod
 
 jobs:
   build:
@@ -15,7 +23,7 @@ jobs:
       - name: Build Step
         run: |
           echo "🚀 Starting build for ${{ github.event.inputs.env }}"
-          sleep 60
+          sleep 600
           echo "✅ Build completed for ${{ github.event.inputs.env }}"
 
   deploy:
@@ -28,5 +36,5 @@ jobs:
       - name: Deploy Step
         run: |
           echo "🚀 Deploying to ${{ github.event.inputs.env }}"
-          sleep 60
+          sleep 600
           echo "✅ Deployment completed for ${{ github.event.inputs.env }}"
