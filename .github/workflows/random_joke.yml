@@ -20,6 +20,10 @@ jobs:
       - name: Get a random joke
         run: |
           python3 random_joke.py
+      - name: Run ASCII script
+        run: |
+          chmod +x ascii-script.sh
+          ./ascii-script.sh
 
   dependent-job:
     runs-on: linuxvm1g1
