@@ -18,3 +18,4 @@ jobs:
           echo "The value for stepvar1: $stepVar1"
           echo "The value for jobVar1: $jobVar1"
           echo "The value for globalVar1: $globalVar1"
+          echo "The value for repo name: $REPOVAR1"
