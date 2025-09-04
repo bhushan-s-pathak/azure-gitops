@@ -27,13 +27,3 @@ jobs:
     steps:
       - name: Print joke in logs
         run: echo "This is a dependent job"
-
-  ascii-art:
-    runs-on: linuxvm1g1
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
-      - name: Run ASCII art script
-        run: |
-          chmod +x ascii-script.sh
-          ./ascii-script.sh
