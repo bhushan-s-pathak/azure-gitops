@@ -4,6 +4,8 @@ on:
 
 jobs:
   job1:
+    env:
+      jobVar1: jobvalue1
     runs-on: ubuntu-latest
     steps:
       - name: step1
@@ -11,3 +13,4 @@ jobs:
           stepVar1: stepvalue1
         run: |
           echo "The value for stepvar1: $stepVar1"
+          echo "The value for jobVar1: $jobVar1"
