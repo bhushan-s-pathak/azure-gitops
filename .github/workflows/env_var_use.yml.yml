@@ -19,3 +19,4 @@ jobs:
           echo "The value for jobVar1: $jobVar1"
           echo "The value for globalVar1: $globalVar1"
           echo "The value for REPOVAR1: ${{ vars.REPOVAR1 }}"
+          echo "The value for Token: ${{ secrets.TOKEN }}"
