@@ -14,7 +14,9 @@ jobs:
       - id: step2
         run: echo "test=world" >> $GITHUB_OUTPUT
       - id: step3
-        run: echo "${{ steps.step1.outputs.test }} ${{ steps.step2.outputs.test }}"
+        run: |
+          echo "${{ steps.step1.outputs.test }} ${{ steps.step2.outputs.test }}"
+          echo "GitHub reference is ${{ github.ref }}"
   job2:
     runs-on: ubuntu-latest
     needs: job1
