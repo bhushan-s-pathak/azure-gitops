@@ -46,4 +46,6 @@ jobs:
 
       # Uncomment to deploy based on the selected environment
       - name: Deploy to ${{ inputs.environment }}
-        run: echo "Deploying to ${{ inputs.environment }}"
+        run: |
+          echo "Deploying to ${{ inputs.environment }}"
+          echo "Current OS: ${{ vars.OS }}"
