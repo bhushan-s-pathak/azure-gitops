@@ -9,4 +9,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Display payload
-        run: echo "Payload: ${{ github.event.client_payload.message }}"
+        run: |
+            echo "Payload: ${{ github.event.client_payload.message }}"
