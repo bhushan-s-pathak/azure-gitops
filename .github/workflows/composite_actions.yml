@@ -10,7 +10,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Use my composite action
-        uses: ./.github/actions/my-composite-action@main
+        uses: ./.github/actions/my-composite-action
         # uses: bhushan-s-pathak/azure-gitops/.github/actions/my-composite-action@main
         with:
           node-version: '18'
