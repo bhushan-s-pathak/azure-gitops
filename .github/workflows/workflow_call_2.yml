@@ -1,0 +1,21 @@
+name: DEPLOY_WORKFLOW_DEMO
+
+on:
+  workflow_run:
+    workflows:
+      - BUILD_WORKFLOW_DEMO
+    types:
+      - completed
+
+jobs:
+  on-success:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Starting deployment steps..."
+
+  on-failure:
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Build failed; skipping deployment."
