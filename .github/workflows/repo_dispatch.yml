@@ -1,0 +1,12 @@
+name: External API Trigger
+
+on:
+  repository_dispatch:
+    types: [system_result]
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display payload
+        run: echo "Payload: ${{ github.event.client_payload.message }}"
