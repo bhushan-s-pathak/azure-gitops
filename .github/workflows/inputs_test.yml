@@ -29,6 +29,7 @@ on:
 
 jobs:
   build-and-deploy:
+    environment: ${{ inputs.environment }}
     runs-on: ubuntu-latest
     steps:
       - name: Print workflow inputs
@@ -44,6 +45,5 @@ jobs:
         run: echo "Running tests..."
 
       # Uncomment to deploy based on the selected environment
-      # - name: Deploy to ${{ inputs.environment }}
-      #   environment: ${{ inputs.environment }}
-      #   run: echo "Deploying to ${{ inputs.environment }}"
+      - name: Deploy to ${{ inputs.environment }}
+        run: echo "Deploying to ${{ inputs.environment }}"
