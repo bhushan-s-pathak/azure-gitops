@@ -9,7 +9,10 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, ubuntu-20.04, windows-latest]
-        # image: [hello-world, alpine]
+        image: [hello-world, alpine]
+        exclude:
+          - os: windows-latest
+            image: alpine
     runs-on: ${{ matrix.os }}
     steps:
       - name: Echo Docker Details
