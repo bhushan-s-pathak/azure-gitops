@@ -1,0 +1,23 @@
+name: Output Demo
+on:
+    workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    outputs:
+        output1: ${{ steps.step1.outputs.test }}
+        output2: ${{ steps.step2.outputs.test }}
+    steps:
+      - id: step1
+        run: echo "test=hello" >> $GITHUB_OUTPUT
+      - id: step2
+        run: echo "test=world" >> $GITHUB_OUTPUT
+      - id: step3
+        run: echo "${{ steps.step1.outputs.test }} ${{ steps.step2.outputs.test }}"
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+    - name: Use outputs from job1
+      run: echo "Output1 is ${{ needs.job1.outputs.output1 }} and Output2 is ${{ needs.job1.outputs.output2 }}"
